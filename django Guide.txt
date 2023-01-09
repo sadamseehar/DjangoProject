@@ -1,0 +1,125 @@
+pip freeze // to check installed pakages in python
+pip install django
+django-admin startproject myprojec
+
+
+python manage.py runserver
+
+
+python manage.py runserver 1234 // run on port 1234
+
+
+creating template folder for all html files
+
+static folder for all static files i.e js css jquery etc
+
+media folder for dynamic file i.e images
+
+python manage.py migrate
+
+install db browser for sqlite
+
+
+//making superuser in django
+
+python manage.py createsuperuser
+
+//urls and views
+
+create view.py file in project for adding functions in it.
+
+in view file
+
+from django.http import HttpResponse 
+
+def anyFunction(request):
+	return HttpResponse("hello")
+
+
+// url
+create route in url file
+
+
+
+
+
+path('url',views.functionname)
+
+
+// rendering template
+
+first create templates folder in project
+
+
+in settings file set templates folder path
+
+//import render pakage in views file
+from django.shortcuts import render
+
+
+// passing data to html page 
+{{keyname}}
+
+
+
+// static file permissions
+
+in settings file add
+
+STATICFILES_DIRS = [BASE_DIR,"static"] // where static is folder name where all statics files are places
+
+
+{% load static %}
+
+<link  href = {% static 'abc.css' %}>
+
+
+// include in django
+
+{% include "header.html" %}
+
+
+
+// extend in djano
+
+{% extends "layout.html" %}
+
+{% block main %}
+
+
+{% endblock %}
+
+// url by name 
+
+<a href = {% url 'urlName' %}>
+
+
+// active current page in navbar
+{{request.path}} // to print the current url path
+
+<a class = "{% if request.path == 'urlName' %} active {% endif %}" href = {% url 'urlName' %}>home </a>
+<a class = "{% if request.path == 'urlName' %} active {% endif %}" href = {% url 'urlName' %}>home </a>
+
+or
+
+{% url 'home' as url %}
+
+
+<a class = "{% if request.path == url %} active {% endif %}" href = {{ url }}>home </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
